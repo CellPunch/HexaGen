@@ -16,13 +16,13 @@ namespace HexaGen.Runtime
         private static extern nint GetProcAddressNative(nint hModule, byte* lpProcName);
 
         // Unix/Linux/Android
-        [DllImport("libdl.so", EntryPoint = "dlopen")]
+        [DllImport("libdl.so.2", EntryPoint = "dlopen")]
         private static extern nint DLOpenNative(byte* fileName, int flags);
 
-        [DllImport("libdl.so", EntryPoint = "dlclose")]
+        [DllImport("libdl.so.2", EntryPoint = "dlclose")]
         private static extern int DLCloseNative(nint handle);
 
-        [DllImport("libdl.so", EntryPoint = "dlsym")]
+        [DllImport("libdl.so.2", EntryPoint = "dlsym")]
         private static extern nint DLSymNative(nint handle, byte* name);
 
         // OSX
